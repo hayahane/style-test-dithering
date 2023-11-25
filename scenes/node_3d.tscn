@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddmq5v517dp6n"]
+
+[ext_resource type="Script" path="res://scripts/CsharpTestNode.cs" id="1_1fsyf"]
+[ext_resource type="Script" path="res://scripts/PropertyTestCsharp.cs" id="3_2ioef"]
+[ext_resource type="Script" path="res://scripts/gdscript/new_script.gd" id="3_safjt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ik3ox"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -5.4433e-16, 2.88817e-16, 2.88817e-16, 0.82806, 0.560639, -5.4433e-16, -0.560639, 0.82806, 2.08165e-12, 1.24, 1.997)
+
+[node name="CsharpTestNode" type="Node3D" parent="."]
+script = ExtResource("1_1fsyf")
+RotateSpeed = 0.0
+RotateAxis = Vector3(0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CsharpTestNode"]
+mesh = SubResource("BoxMesh_ik3ox")
+skeleton = NodePath("")
+
+[node name="PropertyTest" type="Node3D" parent="."]
+script = ExtResource("3_safjt")
+holding_hammer = true
+hammer_type = 0
+
+[node name="PropertyTestCsharp" type="Node3D" parent="."]
+script = ExtResource("3_2ioef")
+HammerType = 0
+HoldingHammer = true
