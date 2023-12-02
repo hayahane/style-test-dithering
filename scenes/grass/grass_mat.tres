@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bsvy2wilo3m2b"]
+
+[ext_resource type="Shader" path="res://shader/grass_swing.gdshader" id="1_bvyii"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bvyii")
