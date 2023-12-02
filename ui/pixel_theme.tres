@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dpap2lm2a7wli"]
+
+[ext_resource type="FontFile" uid="uid://24pk8852kyfp" path="res://ui/fonts/ark-pixel-16px-proportional-zh_cn.ttf" id="1_7hl0v"]
+
+[resource]
+default_font = ExtResource("1_7hl0v")
+default_font_size = 16
+Button/colors/font_color = Color(0.858824, 0.729412, 0.396078, 1)
+Label/colors/font_color = Color(0.858824, 0.729412, 0.396078, 1)

@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://ddmq5v517dp6n"]
+
+[ext_resource type="Shader" path="res://shader/post_processing/bayer_dither.gdshader" id="1_igoyf"]
+[ext_resource type="Script" path="res://scripts/gdscript/character_move.gd" id="1_vupe8"]
+[ext_resource type="Shader" path="res://shader/post_processing/outline.gdshader" id="2_1kkag"]
+[ext_resource type="PackedScene" uid="uid://iisykmjkk6sd" path="res://characters/test_bot/test_bot.tscn" id="4_t2pmi"]
+[ext_resource type="Material" uid="uid://yq3r7ek1gywe" path="res://materials/toon_shading_mat.tres" id="5_egr5y"]
+[ext_resource type="Theme" uid="uid://dpap2lm2a7wli" path="res://ui/pixel_theme.tres" id="6_uv7fa"]
+
+[sub_resource type="Environment" id="Environment_xj3u6"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.478431, 1, 0.619608, 1)
+ambient_light_energy = 0.1
+tonemap_mode = 2
+tonemap_white = 7.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_y52f4"]
+resource_local_to_scene = true
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eoi5m"]
+render_priority = 0
+shader = ExtResource("1_igoyf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfy2a"]
+render_priority = 100
+shader = ExtResource("2_1kkag")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 1.74
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2jvvr"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_hcwu0"]
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xj3u6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.775925, -0.224515, 0.58952, 0, 0.934522, 0.355907, -0.630825, -0.276157, 0.725119, 0, 3.59765, 0)
+light_color = Color(0.619608, 0.52549, 0.286275, 1)
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 5.055
+shadow_blur = 0.916
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.813721, 1.37767, 1.89151)
+light_color = Color(0, 1, 1, 1)
+omni_attenuation = 1.07177
+
+[node name="Input Manager" type="Node" parent="."]
+
+[node name="PostProcessing Dither" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_y52f4")
+surface_material_override/0 = SubResource("ShaderMaterial_eoi5m")
+
+[node name="PostProcessing Outline" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_y52f4")
+surface_material_override/0 = SubResource("ShaderMaterial_gfy2a")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("target_camera")]
+script = ExtResource("1_vupe8")
+target_camera = NodePath("SpringArm3D/Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2jvvr")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+shape = SubResource("SeparationRayShape3D_hcwu0")
+spring_length = -1.705
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/SpringArm3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.7)
+current = true
+
+[node name="TestBot" parent="CharacterBody3D" instance=ExtResource("4_t2pmi")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+material_override = ExtResource("5_egr5y")
+use_collision = true
+size = Vector3(16.3296, 0.5, 16.0767)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12556, 1.88188, -2.22581)
+material_override = ExtResource("5_egr5y")
+use_collision = true
+size = Vector3(2.03596, 4.50521, 3.34248)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.701991, 0, 0.712185, 0, 1, 0, -0.712185, 0, 0.701991, -2.60872, 0.35204, 0.450253)
+material_override = ExtResource("5_egr5y")
+use_collision = true
+size = Vector3(2.03596, 0.765554, 5.09812)
+
+[node name="UI Interface" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI Interface"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 113.0
+offset_bottom = 24.0
+theme = ExtResource("6_uv7fa")
+text = "return of godot"
