@@ -40,9 +40,16 @@ public partial class CsharpTestNode : Node3D
 		GD.Print("C# Custom Node Ready");
 	}
 
+	public override void _Input(InputEvent @event)
+	{
+		
+	}
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (!_isRotating || (Mathf.IsEqualApprox(RotateSpeed, 0) && RotateAxis != Vector3.Zero)) return;
+		
 		Transform = Transform.Rotated(RotateAxis, (float)delta * RotateSpeed);
 		GD.Print((IsRotating?"is":"not") + " rotating");
 	}
