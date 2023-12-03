@@ -21,6 +21,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/stretch/scale=2.0
+window/stretch/scale_mode="integer"
 
 [dotnet]
 
@@ -91,5 +92,9 @@ color_filter={
 }
 wind_vector={
 "type": "vec3",
-"value": Vector3(-0.465, 0, -0.76)
+"value": Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+}
+threshold={
+"type": "float",
+"value": 0.3
 }

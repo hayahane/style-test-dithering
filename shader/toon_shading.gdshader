@@ -2,7 +2,7 @@ shader_type spatial;
 
 #include "shader_include/color_convert.gdshaderinc"
 
-uniform float threshold = 0.3;
+global uniform float threshold;
 
 
 void light() {

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://djajp560bmf3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uxtxq"]
+
+[sub_resource type="Sky" id="Sky_o7v6g"]
+sky_material = SubResource("ProceduralSkyMaterial_uxtxq")
+
+[sub_resource type="Environment" id="Environment_tg1gy"]
+background_mode = 2
+sky = SubResource("Sky_o7v6g")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_68ekr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wl7mu"]
+
+[node name="Root" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tg1gy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.705711, 0.7085, 0, -0.7085, 0.705711, -2.8052, 0, -0.646275)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(4.08553, 0.171355, 4.2298)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0980787, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_68ekr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+mesh = SubResource("CapsuleMesh_wl7mu")

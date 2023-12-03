@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddmq5v517dp6n"]
+[gd_scene load_steps=14 format=3 uid="uid://ddmq5v517dp6n"]
 
 [ext_resource type="Shader" path="res://shader/post_processing/bayer_dither.gdshader" id="1_igoyf"]
 [ext_resource type="Script" path="res://scripts/gdscript/character_move.gd" id="1_vupe8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://iisykmjkk6sd" path="res://characters/test_bot/test_bot.tscn" id="4_t2pmi"]
 [ext_resource type="Material" uid="uid://yq3r7ek1gywe" path="res://materials/toon_shading_mat.tres" id="5_egr5y"]
 [ext_resource type="Theme" uid="uid://dpap2lm2a7wli" path="res://ui/pixel_theme.tres" id="6_uv7fa"]
+[ext_resource type="PackedScene" uid="uid://devtbq7xpljs2" path="res://scenes/grass/grass.tscn" id="7_rjemv"]
 
 [sub_resource type="Environment" id="Environment_xj3u6"]
 background_mode = 1
@@ -117,3 +118,6 @@ offset_right = 113.0
 offset_bottom = 24.0
 theme = ExtResource("6_uv7fa")
 text = "return of godot"
+
+[node name="grass" parent="." instance=ExtResource("7_rjemv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35232, -1.19209e-07, -0.289757)
