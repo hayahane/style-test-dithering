@@ -1,10 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://devtbq7xpljs2"]
+[gd_scene load_steps=3 format=3 uid="uid://8j8yflfddbg4"]
 
-[ext_resource type="PackedScene" uid="uid://44bd4sguta1m" path="res://scenes/grass/grass.blend" id="1_beiv0"]
-[ext_resource type="Material" uid="uid://bsvy2wilo3m2b" path="res://scenes/grass_mat.tres" id="2_xtewx"]
+[ext_resource type="ArrayMesh" uid="uid://dvy8egcbe0l03" path="res://scenes/grass/mesh/grass_mesh.res" id="1_rggmk"]
+[ext_resource type="Material" uid="uid://bsvy2wilo3m2b" path="res://scenes/grass/grass_mat.tres" id="2_xnolo"]
 
-[node name="grass" instance=ExtResource("1_beiv0")]
-
-[node name="Grass" parent="." index="0"]
-transform = Transform3D(1.99999, -0.000368335, -0.00551889, 0.000382185, 1.99999, 0.00502014, 0.00551795, -0.00502118, 1.99999, -0.00258386, 2.08165e-12, 0.000126839)
-surface_material_override/0 = ExtResource("2_xtewx")
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97942, 0, 1.32619)
+mesh = ExtResource("1_rggmk")
+surface_material_override/0 = ExtResource("2_xnolo")

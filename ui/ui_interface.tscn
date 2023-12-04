@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://6geam5jox86"]
+
+[ext_resource type="FontFile" uid="uid://cypp6k0h6w4s2" path="res://ui/fonts/ark-pixel-16px-proportional-latin.ttf" id="1_o5ksj"]
+[ext_resource type="Theme" uid="uid://dpap2lm2a7wli" path="res://ui/pixel_theme.tres" id="1_y6f6d"]
+[ext_resource type="Script" path="res://scripts/gdscript/game_manager.gd" id="2_683jx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lrivv"]
+line_spacing = 16.0
+font = ExtResource("1_o5ksj")
+font_color = Color(0, 0, 0, 1)
+
+[node name="UI Interface" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+color = Color(0.796078, 0.803922, 0.564706, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 124.0
+offset_bottom = 24.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.796078, 0.803922, 0.564706, 1)
+
+[node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 351.0
+offset_bottom = 24.0
+text = "copyright © Alpac4t (hayahane)"
+label_settings = SubResource("LabelSettings_lrivv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 115.0
+offset_bottom = 24.0
+theme = ExtResource("1_y6f6d")
+text = "return of godot"
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1249.0
+offset_right = 1278.0
+offset_bottom = 24.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1218.0
+offset_right = 1247.0
+offset_bottom = 24.0
+color = Color(0.25098, 0.254902, 0.12549, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_top = -5.0
+offset_bottom = 27.0
+grow_horizontal = 0
+theme = ExtResource("1_y6f6d")
+action_mode = 0
+text = "x
+"
+flat = true
+icon_alignment = 2
+script = ExtResource("2_683jx")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1229.0
+offset_top = -7.0
+offset_right = 1237.0
+offset_bottom = 17.0
+theme = ExtResource("1_y6f6d")
+text = "_"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

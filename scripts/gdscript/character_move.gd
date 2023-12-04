@@ -50,6 +50,8 @@ func _physics_process(delta):
 	var desired_velocity:Vector3 = (camera_basis.x.slide(up_direction).normalized()) * move_input.x + (-camera_basis.z.slide(up_direction).normalized()) * move_input.y
 	desired_velocity -= velocity;
 	velocity += desired_velocity.normalized() * clamp(move_accelerate * delta, 0, desired_velocity.length())
+	if (!is_on_floor()):
+		velocity += Vector3.DOWN * (9.81 * delta)
 	move_and_slide()
 		
 	animation_tree.set("parameters/move_speed/blend_position", velocity.length())

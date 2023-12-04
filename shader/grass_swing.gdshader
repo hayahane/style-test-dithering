@@ -28,7 +28,8 @@ void fragment()
 	//ALBEDO = NORMAL;
 }
 
-void light() {
+void light() 
+{
 	float dot_result = dot(NORMAL,LIGHT);
 	if (LIGHT_IS_DIRECTIONAL)
 	{

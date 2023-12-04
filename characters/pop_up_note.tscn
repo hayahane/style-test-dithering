@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgc7ecjlc3r21"]
+
+[ext_resource type="Theme" uid="uid://dpap2lm2a7wli" path="res://ui/pixel_theme.tres" id="1_urn7q"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 152.0
+offset_right = 392.0
+offset_bottom = 374.0
+color = Color(0.796078, 0.803922, 0.564706, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 26.0
+offset_right = 193.0
+offset_bottom = 217.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 177.0
+offset_bottom = 185.0
+theme = ExtResource("1_urn7q")
+text = "This CAGE is for everyone.
+Since you're here, forget
+what you've got in the
+past.
+What you have now is
+forever suffering...."
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 44.0
+offset_bottom = 24.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 44.0
+offset_bottom = 23.0
+theme = ExtResource("1_urn7q")
+text = "NOTE"

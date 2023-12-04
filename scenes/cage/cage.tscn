@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcnskwwn05iii"]
+
+[ext_resource type="PackedScene" uid="uid://dpnmyrlse65le" path="res://scenes/cage/cage.blend" id="1_at1fo"]
+[ext_resource type="Material" uid="uid://yq3r7ek1gywe" path="res://materials/toon_shading_mat.tres" id="2_6pqd6"]
+
+[node name="cage2" instance=ExtResource("1_at1fo")]
+
+[node name="cage" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_6pqd6")

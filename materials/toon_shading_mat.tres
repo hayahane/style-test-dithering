@@ -5,6 +5,3 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_j6y31")
-shader_parameter/color_bright = Vector3(0.9, 0.9, 0.9)
-shader_parameter/color_dark = Vector3(0, 0, 0)
-shader_parameter/threshold = 0.35
