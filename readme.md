@@ -27,7 +27,7 @@ cd PATH
 3. 退出
 点击右上角退出按钮退出程序。
 
-## 亮点
+## Feature
 - Dithering和low-bit rate的艺术风格
 - 只用`MainLight`决定亮度，次要光源只渲染色彩的自定义NPR光照
 - 利用`Global Uniform`实现方便的场景效果管理
